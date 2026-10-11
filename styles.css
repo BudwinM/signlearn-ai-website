@@ -301,6 +301,75 @@
   color: #059669 !important;
 }
 
+/* Hero Cyber Viewport Visualizer in Light Mode */
+[data-theme="light"] .cyber-viewport {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.12) !important;
+}
+
+[data-theme="light"] .viewport-header {
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme="light"] .viewport-header .academic-label {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .telemetry-live-tag {
+  background: rgba(5, 150, 105, 0.1) !important;
+  border: 1px solid rgba(5, 150, 105, 0.3) !important;
+  color: #059669 !important;
+}
+
+[data-theme="light"] .viewport-media-container {
+  background: #f1f5f9 !important;
+}
+
+[data-theme="light"] .viewport-footer {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+}
+
+[data-theme="light"] .viewport-footer .academic-status {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .viewport-footer .text-muted {
+  color: #64748b !important;
+}
+
+/* Floating HUD Badges in Light Mode (Fixes white-on-white text) */
+[data-theme="light"] .hud-badge {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12) !important;
+}
+
+[data-theme="light"] .hud-label {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .hud-value {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .hud-icon-wrap.emerald {
+  background: rgba(5, 150, 105, 0.12) !important;
+  color: #059669 !important;
+}
+
+[data-theme="light"] .hud-icon-wrap.cyan {
+  background: rgba(2, 132, 199, 0.12) !important;
+  color: #0284c7 !important;
+}
+
+[data-theme="light"] .hud-icon-wrap.purple {
+  background: rgba(168, 85, 247, 0.12) !important;
+  color: #7c3aed !important;
+}
+
 /* 4. ARCHITECTURE SECTION & PIPELINE FLOW */
 [data-theme="light"] .flow-node {
   background: #ffffff !important;
