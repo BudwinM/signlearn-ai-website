@@ -1028,10 +1028,14 @@ body {
 .ambient-glow {
   position: fixed;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(80px);
   opacity: 0.35;
   pointer-events: none;
   z-index: 0;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  contain: strict;
+  backface-visibility: hidden;
   transition: transform var(--duration-slow) var(--ease-smooth);
 }
 
@@ -2845,8 +2849,10 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-  .component-nav-tabs {
-    grid-template-columns: repeat(2, 1fr);
+  .component-nav-tabs,
+  .comp-nav-tabs {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
   }
   .screenshots-duo-grid {
     grid-template-columns: 1fr;
@@ -2866,8 +2872,13 @@ body {
 }
 
 @media (max-width: 640px) {
-  .component-nav-tabs {
-    grid-template-columns: 1fr;
+  .component-nav-tabs,
+  .comp-nav-tabs {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .comp-tab {
+    padding: 12px 14px !important;
   }
   .components-glass-container {
     padding: 18px;
@@ -4205,4 +4216,31 @@ input.cyber-input:focus,
   .ambient-glow {
     display: none;
   }
+}
+/* Mobile Drawer & Mobile Performance Optimizations */
+@media (max-width: 1040px) {
+  [data-theme="light"] .nav-links {
+    background: rgba(255, 255, 255, 0.98) !important;
+    border: 1px solid rgba(15, 23, 42, 0.12) !important;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12) !important;
+  }
+  [data-theme="light"] .nav-links .nav-link {
+    color: #334155 !important;
+  }
+  [data-theme="light"] .nav-links .nav-link:hover,
+  [data-theme="light"] .nav-links .nav-link.active {
+    color: #059669 !important;
+    background: rgba(5, 150, 105, 0.08) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .ambient-glow {
+    filter: blur(40px) !important;
+    opacity: 0.18 !important;
+    animation: none !important;
+  }
+  .orb-1 { width: 260px !important; height: 260px !important; }
+  .orb-2 { width: 280px !important; height: 280px !important; }
+  .orb-3 { width: 240px !important; height: 240px !important; }
 }

@@ -67,64 +67,89 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 02. READING PROGRESS BAR & ACTIVE SCROLLSPY
+  // 02. READING PROGRESS INDICATOR & HIGH-PERFORMANCE SCROLLSPY
   // =========================================================================
   const progressBar = document.getElementById('readingProgress');
   const floatingTopBtn = document.getElementById('floatingTopBtn');
   const navLinks = document.querySelectorAll('.nav-link');
   const trackedSections = document.querySelectorAll('section[id]');
 
+  let cachedOffsets = [];
+  function updateSectionOffsets() {
+    cachedOffsets = Array.from(trackedSections).map(section => ({
+      id: section.getAttribute('id'),
+      top: section.offsetTop - 140,
+      height: section.offsetHeight
+    }));
+  }
+  updateSectionOffsets();
+  window.addEventListener('resize', updateSectionOffsets, { passive: true });
+
+  let isScrollTicking = false;
   window.addEventListener('scroll', () => {
-    const totalScroll = document.documentElement.scrollTop;
-    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrollPercent = (totalScroll / windowHeight) * 100;
+    if (!isScrollTicking) {
+      window.requestAnimationFrame(() => {
+        const totalScroll = window.scrollY || document.documentElement.scrollTop;
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = windowHeight > 0 ? (totalScroll / windowHeight) * 100 : 0;
 
-    if (progressBar) {
-      progressBar.style.width = `${scrollPercent}%`;
-    }
-
-    if (floatingTopBtn) {
-      if (totalScroll > 400) {
-        floatingTopBtn.classList.add('visible');
-      } else {
-        floatingTopBtn.classList.remove('visible');
-      }
-    }
-
-    // Scrollspy
-    let currentId = '';
-    trackedSections.forEach(section => {
-      const top = section.offsetTop - 140;
-      const height = section.offsetHeight;
-      if (totalScroll >= top && totalScroll < top + height) {
-        currentId = section.getAttribute('id');
-      }
-    });
-
-    if (currentId) {
-      navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === `#${currentId}`) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
+        if (progressBar) {
+          progressBar.style.width = `${scrollPercent}%`;
         }
+
+        if (floatingTopBtn) {
+          if (totalScroll > 400) {
+            floatingTopBtn.classList.add('visible');
+          } else {
+            floatingTopBtn.classList.remove('visible');
+          }
+        }
+
+        // Cached Scrollspy (zero layout thrashing for 60-120fps)
+        let currentId = '';
+        for (let i = 0; i < cachedOffsets.length; i++) {
+          const item = cachedOffsets[i];
+          if (totalScroll >= item.top && totalScroll < item.top + item.height) {
+            currentId = item.id;
+            break;
+          }
+        }
+
+        if (currentId) {
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${currentId}`) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+
+        isScrollTicking = false;
       });
+      isScrollTicking = true;
     }
   }, { passive: true });
 
   // =========================================================================
-  // 03. INTERACTIVE CARD SPOTLIGHT CURSOR TRACKING
+  // 03. INTERACTIVE CARD SPOTLIGHT CURSOR TRACKING (RAF THROTTLED)
   // =========================================================================
   const glassCards = document.querySelectorAll('.glass-card');
   glassCards.forEach(card => {
+    let isMoving = false;
     card.addEventListener('pointermove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      card.style.setProperty('--mouse-x', `${x}%`);
-      card.style.setProperty('--mouse-y', `${y}%`);
-    });
+      if (!isMoving) {
+        window.requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty('--mouse-x', `${x}%`);
+          card.style.setProperty('--mouse-y', `${y}%`);
+          isMoving = false;
+        });
+        isMoving = true;
+      }
+    }, { passive: true });
   });
 
   // =========================================================================
