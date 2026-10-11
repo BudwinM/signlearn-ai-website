@@ -28,6 +28,46 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
+  // 01B. LIGHT / DARK THEME TOGGLE ENGINE
+  // =========================================================================
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const themeText = document.getElementById('themeText');
+  const htmlEl = document.documentElement;
+
+  function applyTheme(theme) {
+    if (theme === 'light') {
+      htmlEl.setAttribute('data-theme', 'light');
+      if (themeText) themeText.textContent = 'Dark';
+      if (themeToggleBtn) {
+        themeToggleBtn.setAttribute('title', 'Switch to Dark Mode');
+        themeToggleBtn.setAttribute('aria-label', 'Switch to Dark Mode');
+      }
+    } else {
+      htmlEl.removeAttribute('data-theme');
+      if (themeText) themeText.textContent = 'Light';
+      if (themeToggleBtn) {
+        themeToggleBtn.setAttribute('title', 'Switch to Light Mode');
+        themeToggleBtn.setAttribute('aria-label', 'Switch to Light Mode');
+      }
+    }
+    try {
+      localStorage.setItem('signlearn-theme', theme);
+    } catch (e) {}
+  }
+
+  // Initialize theme from storage
+  const initialTheme = localStorage.getItem('signlearn-theme') || 'dark';
+  applyTheme(initialTheme);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const isCurrentlyLight = htmlEl.getAttribute('data-theme') === 'light';
+      const targetTheme = isCurrentlyLight ? 'dark' : 'light';
+      applyTheme(targetTheme);
+    });
+  }
+
+  // =========================================================================
   // 02. READING PROGRESS BAR & ACTIVE SCROLLSPY
   // =========================================================================
   const progressBar = document.getElementById('readingProgress');
