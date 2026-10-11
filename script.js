@@ -1,34 +1,33 @@
 /**
- * SIGNLEARN AI · FUTURISTIC RESEARCH PLATFORM CLIENT LOGIC
- * Project Code: R26-IT-018 · SLIIT Faculty of Computing
- * Engineered with pure Vanilla JS, Web Audio API synthesis,
- * canvas telemetry rendering, and interactive research sandboxes.
+ * SignLearn AI — Academic Research Platform Client Script
+ * Research Project Code: R26-IT-018
+ * SLIIT Faculty of Computing — 4th Year Comprehensive Research Project
+ *
+ * Project Authors:
+ *  - Tharaka W A K N       (IT22211200) — Subsystem 01: Attention Telemetry & Knowledge Graph Question Generation
+ *  - Kothalawala L S S     (IT22185884) — Subsystem 02: Emotion-Aware Adaptive Chatbot (EARA) & Knowledge Growth
+ *  - Mendis L B L          (IT22197764) — Subsystem 03: 3D/2D Sign Avatar Lecture Generator & ASL Fingerspelling Studio
+ *  - Nawarathna I K K R B  (IT19131948) — Subsystem 04: Smart Haptic IoT Wristband & Interactive Sign Practice Arena
+ *
+ * Main Functional Modules:
+ *  01. Theme Management (Light / Dark Mode persistence via localStorage)
+ *  02. Reading Progress Indicator & Scrollspy Navigation
+ *  03. Interactive Card Spotlight Cursor Tracking
+ *  04. Subsystem Architecture & Dataflow Inspector
+ *  05. Component Showcase & Screenshot Lightbox Viewer
+ *  06. Research Contribution Specifications Modal
+ *  07. Document Repository Search & Filter System
+ *  08. Email Quick-Copy & Feedback Toast Notification System
+ *  09. Research Inquiry Form Submission Handler
+ *  10. Command Palette Keyboard Navigation (Ctrl+K / Cmd+K)
+ *  11. Responsive Mobile Navigation Drawer
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   // =========================================================================
-  // 01. AUDIO SYNTHESIS ENGINE (WEB AUDIO API · 0KB FOOTPRINT)
-  // =========================================================================
-  let audioCtx = null;
-  let isSoundEnabled = false;
-
-  function initAudioContext() {
-    if (!audioCtx && (window.AudioContext || window.webkitAudioContext)) {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    }
-    if (audioCtx && audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-  }
-
-  function playUiTone() {
-    // Kept silent for professional academic research standards
-  }
-
-  // =========================================================================
-  // 01B. LIGHT / DARK THEME TOGGLE ENGINE
+  // 01. THEME MANAGEMENT (LIGHT / DARK MODE)
   // =========================================================================
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const themeText = document.getElementById('themeText');
@@ -115,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
 
   // =========================================================================
-  // 03. CARD SPOTLIGHT CURSOR TRACKING (LINEAR / VERCEL STYLE)
+  // 03. INTERACTIVE CARD SPOTLIGHT CURSOR TRACKING
   // =========================================================================
   const glassCards = document.querySelectorAll('.glass-card');
   glassCards.forEach(card => {
@@ -129,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 04. INTERACTIVE SYSTEMS ARCHITECTURE & DATAFLOW INSPECTOR
+  // 04. SUBSYSTEM ARCHITECTURE & DATAFLOW INSPECTOR
   // =========================================================================
   const flowNodes = document.querySelectorAll('.flow-node');
   const flowData = {
@@ -208,7 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       node.classList.add('active');
       node.setAttribute('aria-selected', 'true');
-      playUiTone(620, 'sine', 0.05, 0.04);
 
       const key = node.dataset.flow;
       const data = flowData[key];
@@ -236,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 05. PRODUCTION COMPONENTS SHOWCASE & SCREENSHOT LIGHTBOX
+  // 05. COMPONENT SHOWCASE & SCREENSHOT LIGHTBOX VIEWER
   // =========================================================================
   const compTabs = document.querySelectorAll('.comp-tab');
   const compPanels = document.querySelectorAll('.comp-panel');
@@ -251,7 +249,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       tab.classList.add('active');
       tab.setAttribute('aria-selected', 'true');
-      playUiTone(780, 'sine', 0.04, 0.03);
 
       const targetId = tab.dataset.tab.replace('comp-', 'panel-');
       const targetPanel = document.getElementById(targetId);
@@ -342,7 +339,6 @@ document.addEventListener('DOMContentLoaded', () => {
     lightboxModal.classList.add('active');
     lightboxModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    playUiTone(880, 'sine', 0.04, 0.03);
   }
 
   function closeLightbox() {
@@ -350,7 +346,6 @@ document.addEventListener('DOMContentLoaded', () => {
     lightboxModal.classList.remove('active');
     lightboxModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    playUiTone(620, 'sine', 0.04, 0.02);
   }
 
   function nextLightbox() {
@@ -383,7 +378,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (lightboxImg) {
     lightboxImg.addEventListener('click', () => {
       lightboxImg.classList.toggle('zoomed');
-      playUiTone(740, 'sine', 0.03, 0.02);
     });
   }
 
@@ -396,7 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 06. RESEARCH CONTRIBUTION SPECS MODAL
+  // 06. RESEARCH CONTRIBUTION SPECIFICATIONS MODAL
   // =========================================================================
   const specModalBackdrop = document.getElementById('specModalBackdrop');
   const specModalClose = document.getElementById('specModalClose');
@@ -497,7 +491,6 @@ document.addEventListener('DOMContentLoaded', () => {
         specModalBody.innerHTML = data.html;
         specModalBackdrop.classList.add('open');
         specModalBackdrop.setAttribute('aria-hidden', 'false');
-        playUiTone(700, 'sine', 0.05, 0.03);
       }
     });
   });
@@ -510,7 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 07. REPOSITORY SEARCH & FILTERING + PDF PREVIEW MODAL
+  // 07. DOCUMENT REPOSITORY SEARCH & FILTER SYSTEM
   // =========================================================================
   const repoSearch = document.getElementById('repoSearchInput');
   const clearSearchBtn = document.getElementById('clearSearchBtn');
@@ -561,7 +554,6 @@ document.addEventListener('DOMContentLoaded', () => {
     pill.addEventListener('click', () => {
       filterPills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
-      playUiTone(820, 'sine', 0.04, 0.03);
       filterResources();
     });
   });
@@ -580,7 +572,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         docModalBackdrop.classList.add('open');
         docModalBackdrop.setAttribute('aria-hidden', 'false');
-        playUiTone(780, 'sine', 0.05, 0.04);
       }
     });
   });
@@ -607,7 +598,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 08. ONE-CLICK EMAIL COPY & TOAST NOTIFICATIONS
+  // 08. EMAIL QUICK-COPY & FEEDBACK TOAST NOTIFICATION SYSTEM
   // =========================================================================
   const toastHub = document.getElementById('toastHub');
 
@@ -635,7 +626,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (navigator.clipboard && textToCopy) {
         navigator.clipboard.writeText(textToCopy).then(() => {
           btn.textContent = 'Copied!';
-          playUiTone(950, 'sine', 0.06, 0.04);
           showToast(`Copied ${textToCopy} to clipboard!`);
           setTimeout(() => btn.textContent = 'Copy', 2000);
         }).catch(() => {
@@ -646,7 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 09. RESEARCH INQUIRY FORM DISPATCH (MAILTO GENERATOR)
+  // 09. RESEARCH INQUIRY FORM SUBMISSION HANDLER
   // =========================================================================
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
@@ -661,7 +651,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const subject = `SignLearn AI Inquiry (R26-IT-018): ${subsystem}`;
       const body = `Full Name: ${name}\nEmail: ${email}\nSubsystem: ${subsystem}\n\nInquiry Details:\n${message}\n\n---\nSent via SignLearn AI Research Portal (SLIIT Project R26-IT-018)`;
 
-      playUiTone(880, 'sine', 0.08, 0.05);
       showToast('Opening default email application with pre-configured recipients...');
       setTimeout(() => {
         window.location.href = `mailto:${recipients}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -670,7 +659,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 10. COMMAND PALETTE MODAL (CTRL+K / ⌘K)
+  // 10. COMMAND PALETTE KEYBOARD NAVIGATION (CTRL+K / CMD+K)
   // =========================================================================
   const cmdPaletteBtn = document.getElementById('cmdPaletteBtn');
   const cmdModalBackdrop = document.getElementById('cmdModalBackdrop');
@@ -686,7 +675,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cmdSearchField.value = '';
         cmdSearchField.focus();
       }
-      playUiTone(740, 'triangle', 0.05, 0.03);
     }
   }
 
@@ -755,7 +743,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 11. MOBILE DRAWER NAVIGATION
+  // 11. RESPONSIVE MOBILE NAVIGATION DRAWER
   // =========================================================================
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const navMenu = document.getElementById('navMenu');
@@ -764,7 +752,6 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenuBtn.addEventListener('click', () => {
       const isOpen = navMenu.classList.toggle('open');
       mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
-      playUiTone(680, 'sine', 0.04, 0.03);
     });
 
     navMenu.querySelectorAll('a').forEach(link => {

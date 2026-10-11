@@ -1,8 +1,32 @@
-/* ==========================================================================
-   SIGNLEARN AI · FUTURISTIC GLASS UI/UX DESIGN SYSTEM (R26-IT-018)
-   Engineered for research elegance, minimal obsidian glass aesthetics,
-   subtle micro-interactions, responsive clarity, and strict performance.
-   ========================================================================== */
+/**
+ * SignLearn AI — Academic Research Presentation Stylesheet
+ * Research Project Code: R26-IT-018 | SLIIT Faculty of Computing
+ *
+ * Project Authors:
+ *  - Tharaka W A K N       (IT22211200)
+ *  - Kothalawala L S S     (IT22185884)
+ *  - Mendis L B L          (IT22197764)
+ *  - Nawarathna I K K R B  (IT19131948)
+ *
+ * Stylesheet Architecture:
+ *  01. Design Tokens & CSS Custom Properties (Dark / Light Mode)
+ *  02. Light Theme Component Overrides
+ *  03. Base Resets & Global Typography
+ *  04. Reusable Glass UI Components & Utilities
+ *  05. Header & Navigation Capsule
+ *  06. Hero Section & Cyber Telemetry Viewport
+ *  07. Architecture & Interactive Pipeline Section
+ *  08. Research Contributions Section
+ *  09. Component Showcase & Screenshot Galleries
+ *  10. Research Domain, Literature & Methodology
+ *  11. Project Milestones & Timeline
+ *  12. Document & Presentation Repository
+ *  13. Research Team Section
+ *  14. Contact & Research Inquiry Terminal
+ *  15. Footer Section
+ *  16. Modals, Lightbox Viewer & Command Palette
+ *  17. Media Queries & Responsive Design
+ */
 
 /* --------------------------------------------------------------------------
    01. DESIGN TOKENS & SYSTEM VARIABLES
@@ -340,7 +364,7 @@
   color: #64748b !important;
 }
 
-/* Floating HUD Badges in Light Mode (Fixes white-on-white text) */
+/* Floating HUD Telemetry Badges in Light Mode */
 [data-theme="light"] .hud-badge {
   background: rgba(255, 255, 255, 0.96) !important;
   border: 1px solid rgba(15, 23, 42, 0.12) !important;
@@ -769,7 +793,7 @@
   color: #64748b !important;
 }
 
-/* 12. FOOTER IN LIGHT MODE (Fixes Screenshot 2 White Headings) */
+/* 12. Footer Section in Light Mode */
 [data-theme="light"] .glass-footer {
   background: #f1f5f9 !important;
   border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
@@ -1119,7 +1143,7 @@ body {
   margin: 0 auto;
 }
 
-/* Futuristic Buttons */
+/* Action Buttons */
 .btn-futuristic {
   display: inline-flex;
   align-items: center;
@@ -1404,29 +1428,6 @@ body {
   color: var(--text-muted);
 }
 
-.audio-toggle-btn {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--glass-border);
-  color: var(--text-secondary);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  transition: all var(--duration-fast);
-  flex-shrink: 0;
-}
-
-.audio-toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.09);
-  color: #fff;
-}
-
-body[data-sound="muted"] .sound-on-icon { display: none; }
-body[data-sound="muted"] .sound-off-icon { display: block; }
-body[data-sound="active"] .sound-on-icon { display: block; color: var(--accent-emerald); }
-body[data-sound="active"] .sound-off-icon { display: none; }
 
 .primary-cta {
   display: inline-flex;
