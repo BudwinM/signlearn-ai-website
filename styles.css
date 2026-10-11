@@ -491,23 +491,58 @@
 }
 
 /* 6. COMPONENTS & SCREENSHOT GALLERIES */
-[data-theme="light"] .comp-tab-btn {
-  background: rgba(15, 23, 42, 0.04) !important;
-  border-color: rgba(15, 23, 42, 0.08) !important;
+[data-theme="light"] .comp-nav-tabs {
+  border-bottom: 1px solid rgba(15, 23, 42, 0.1) !important;
+}
+
+[data-theme="light"] .comp-tab {
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  color: #475569 !important;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+}
+
+[data-theme="light"] .comp-tab:hover {
+  background: #f8fafc !important;
+  border-color: rgba(5, 150, 105, 0.4) !important;
+  color: #059669 !important;
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .comp-tab.active {
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.09) 0%, rgba(2, 132, 199, 0.06) 100%) !important;
+  border-color: #059669 !important;
+  color: #059669 !important;
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.14), inset 0 0 0 1px #059669 !important;
+}
+
+[data-theme="light"] .comp-tab-num {
   color: #64748b !important;
 }
 
-[data-theme="light"] .comp-tab-btn:hover {
-  background: rgba(5, 150, 105, 0.08) !important;
+[data-theme="light"] .comp-tab:hover .comp-tab-num {
   color: #059669 !important;
-  border-color: rgba(5, 150, 105, 0.3) !important;
 }
 
-[data-theme="light"] .comp-tab-btn.active {
-  background: #ffffff !important;
-  border-color: #059669 !important;
+[data-theme="light"] .comp-tab.active .comp-tab-num {
   color: #059669 !important;
-  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.15) !important;
+  text-shadow: none !important;
+}
+
+[data-theme="light"] .comp-tab-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .comp-tab.active .comp-tab-title {
+  color: #059669 !important;
+}
+
+[data-theme="light"] .comp-tab-sub {
+  color: #64748b !important;
+}
+
+[data-theme="light"] .comp-tab.active .comp-tab-sub {
+  color: #047857 !important;
 }
 
 [data-theme="light"] .comp-badge-pill {
@@ -546,7 +581,14 @@
 }
 
 [data-theme="light"] .annotation-item {
-  border-left-color: #059669 !important;
+  background: #f8fafc !important;
+  border-left: 2px solid #059669 !important;
+  color: #475569 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03) !important;
+}
+
+[data-theme="light"] .ann-label {
+  color: #0f172a !important;
 }
 
 [data-theme="light"] .annotation-item strong {
@@ -777,7 +819,32 @@
 
 [data-theme="light"] .institution-card {
   background: #ffffff !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
+  border: 1px solid rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04) !important;
+}
+
+[data-theme="light"] .inst-logo-badge {
+  background: rgba(5, 150, 105, 0.12) !important;
+  border: 1px solid rgba(5, 150, 105, 0.3) !important;
+  color: #059669 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.1) !important;
+}
+
+[data-theme="light"] .inst-details h4 {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .inst-details p {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .inst-code {
+  color: #059669 !important;
+  background: rgba(5, 150, 105, 0.08) !important;
+  border: 1px solid rgba(5, 150, 105, 0.25) !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
 }
 
 [data-theme="light"] .inst-project {
@@ -786,7 +853,19 @@
 
 [data-theme="light"] .direct-broadcast-box {
   background: #f8fafc !important;
-  border-color: rgba(15, 23, 42, 0.1) !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+}
+
+[data-theme="light"] .broadcast-header {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .broadcast-header strong {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .direct-broadcast-box p {
+  color: #475569 !important;
 }
 
 [data-theme="light"] .form-notice {
