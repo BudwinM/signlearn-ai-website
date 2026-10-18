@@ -3340,8 +3340,8 @@ body {
 
 .member-avatar {
   position: relative;
-  width: 52px;
-  height: 52px;
+  width: 60px;
+  height: 60px;
   border-radius: var(--radius-md);
   background: rgba(16, 185, 129, 0.12);
   border: 1px solid rgba(16, 185, 129, 0.3);
@@ -3351,6 +3351,38 @@ body {
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--accent-emerald-light);
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-avatar.has-photo {
+  padding: 0;
+  border: 2px solid rgba(16, 185, 129, 0.6);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
+  background: #0b1320;
+}
+
+.member-avatar .member-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+.researcher-card:hover .member-avatar.has-photo {
+  transform: scale(1.08);
+  border-color: var(--accent-emerald-light);
+  box-shadow: 0 0 22px rgba(16, 185, 129, 0.5);
+}
+
+.member-alias {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-emerald-light);
+  margin-left: 5px;
+  display: inline-block;
 }
 
 .member-id-tag {
