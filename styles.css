@@ -3469,7 +3469,119 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   14. RESEARCH INQUIRY TERMINAL & CONTACT
+   14. SUPERVISORS BLOCK
+   -------------------------------------------------------------------------- */
+.supervisors-block {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.supervisors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.supervisor-card {
+  padding: 28px 28px 26px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  transition: border-color var(--duration-normal) var(--ease-smooth),
+              box-shadow var(--duration-normal) var(--ease-smooth);
+}
+
+.supervisor-card:hover {
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 28px rgba(16, 185, 129, 0.08);
+}
+
+.supervisor-role-tag {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--accent-emerald-light);
+}
+
+.supervisor-role-tag.co {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.25);
+  color: var(--accent-cyan);
+}
+
+.supervisor-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--accent-emerald-light);
+}
+
+.supervisor-card:has(.supervisor-role-tag.co) .supervisor-avatar {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.2);
+  color: var(--accent-cyan);
+}
+
+.supervisor-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-right: 60px;
+}
+
+.supervisor-name {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.supervisor-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-emerald-light);
+}
+
+.supervisor-dept {
+  font-size: 0.81rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.supervisor-faculty {
+  font-size: 0.77rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+[data-theme="light"] .supervisor-name {
+  color: #0f172a;
+}
+
+[data-theme="light"] .supervisor-card {
+  border-color: rgba(0,0,0,0.1);
+}
+
+/* --------------------------------------------------------------------------
+   15. RESEARCH INQUIRY TERMINAL & CONTACT
    -------------------------------------------------------------------------- */
 .contact-terminal-grid {
   display: grid;
@@ -4207,6 +4319,9 @@ input.cyber-input:focus,
     gap: 36px;
   }
   .form-row {
+    grid-template-columns: 1fr;
+  }
+  .supervisors-grid {
     grid-template-columns: 1fr;
   }
 }
