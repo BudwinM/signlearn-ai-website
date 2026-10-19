@@ -44,7 +44,13 @@ This repository contains the official academic research presentation website and
 │   ├── Nawarathna_IT19131948_Proposal.pdf
 │   ├── Proposal_Presentation_R26-IT-018.pdf
 │   ├── Progress_Presentation_01.pdf
-│   └── Progress_Presentation_02.pdf
+│   ├── Progress_Presentation_02.pdf
+│   ├── Final_Presentation_R26-IT-018.pdf
+│   ├── R26-IT-018_CommonReport.pdf
+│   ├── Tharaka_IT22211200_Final_Report.pdf
+│   ├── Kothalawala_IT22185884_Final_Report.pdf
+│   ├── Mendis_IT22197764_Final_Report.pdf
+│   └── Nawarathna_IT19131948_Final_Report.pdf
 └── README.md            # Comprehensive research project documentation
 ```
 
