@@ -50,7 +50,9 @@ This repository contains the official academic research presentation website and
 │   ├── Tharaka_IT22211200_Final_Report.pdf
 │   ├── Kothalawala_IT22185884_Final_Report.pdf
 │   ├── Mendis_IT22197764_Final_Report.pdf
-│   └── Nawarathna_IT19131948_Final_Report.pdf
+│   ├── Nawarathna_IT19131948_Final_Report.pdf
+│   ├── R26-IT-018_Milestones_Compliance_Checklist.pdf
+│   └── R26-IT-018_Milestones_Compliance_Checklist.xlsx
 └── README.md            # Comprehensive research project documentation
 ```
 
